@@ -1,0 +1,18 @@
+// Last updated: 24/03/2026, 14:28:48
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+       int start =0,end = arr.size()-1,ans=arr.size(),mid;
+       while(start<=end){
+        mid = start+(end-start)/2;
+        if(arr[mid]-mid-1 >=k)//find the mising element
+        {
+            ans = mid;
+            end = mid-1;
+        }
+        else
+        start = mid+1;
+       }
+       return ans+k; 
+    }
+};
